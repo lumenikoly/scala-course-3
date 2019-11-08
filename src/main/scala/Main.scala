@@ -1,12 +1,24 @@
-import task2.Creature
+import task2.{Bolt, McQueen, Rocky, Runner, Tanos}
+import task3.Creature
+import task4.CargoCounter
 
 object Main extends App {
 
-  val runners:List[Runner] = List(new Rocky)
-  def race(runners: List[Runner], distance: Int): Unit = {
-     ???
-  }
+  //2
+  val distance: Int = 250
+  val runners:List[Runner] = List(new Rocky, new Tanos, new Bolt, new McQueen)
 
+  def race(runners: List[Runner], distance: Int) = {
+    def getTime(speed: Int, distance: Int): Int = distance/speed
+    val runnersName: List[String] = runners.map(_.name)
+    val runnersTime: List[Int] = runners.map(_.run)
+    val results : Map[String, Int] = (runnersName zip runnersTime.map(distance/_)).toMap
+    results
+  }
+  println(race(runners, distance).toSeq.sortBy(_._2))
+
+
+  //3
   val leon : Creature = Creature(230,2,21)
   val blackMamba : Creature = Creature(2,2,0)
   val elephant : Creature = Creature(5500, 6,7)
@@ -33,7 +45,7 @@ object Main extends App {
         if
           weight > 5000 &&
           length >= 5  && length <= 7 &&
-          coatLength == 0
+          coatLength >= 0 && coatLength <= 15
       => "This is Elephant!"
       case Creature(weight, length, coatLength)
         if
@@ -44,7 +56,7 @@ object Main extends App {
       case Creature(weight, length, coatLength)
         if
           weight >= 0 && weight <= 1 &&
-          length >= 2 && length <= 4 &&
+          length == 0 &&
           coatLength >= 2 && coatLength <= 5
       => "This is Meerkat!"
       case _ => "Run, Forest, run! I don't know what it is!"
@@ -58,6 +70,8 @@ object Main extends App {
   println(identifyAnimal(meerkat))
   println(identifyAnimal(cthulhu))
 
+  CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
+  println(CargoCounter.ordinaryWeight)
 }
 
 
