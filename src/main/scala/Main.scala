@@ -72,6 +72,7 @@ object Main extends App {
 
   CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
   println(CargoCounter.ordinaryWeight)
+  println(CargoCounter.valuableWeight)
 }
 
 
