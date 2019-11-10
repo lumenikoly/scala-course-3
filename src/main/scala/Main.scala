@@ -16,11 +16,9 @@ object Main extends App {
     results
   }
 
-  println(race(runners, distance).toSeq.sortBy(_._2))
-
+  println(s"Результаты гонки ${race(runners, distance).toSeq.sortBy(_._2).mkString(" ")}")
 
   //3
-
   def identifyAnimal(creature: Creature): String = {
     creature match {
       case Creature(weight, length, coatLength)
@@ -57,15 +55,13 @@ object Main extends App {
     }
   }
 
+  //4
   CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
-  println(CargoCounter.ordinaryWeight)
-  println(CargoCounter.valuableWeight)
-  println(CargoCounter.allWeight)
+  println(s"Обычный вес ${CargoCounter.ordinaryWeight}")
+  println(s"Ценный груз ${CargoCounter.valuableWeight}")
+  println(s"Весь груз ${CargoCounter.allWeight}")
 
 
-  val war = new WarCruiser("Eee")
-  println(war.spaceJump(5))
-  println(war.spaceJump(50000))
 }
 
 

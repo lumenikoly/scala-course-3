@@ -4,4 +4,5 @@ trait Transport {
   protected val speed : Int
   protected val strength: Int
   protected val fuelReserve: Int
+  def damage(damage: Int) : Unit
 }

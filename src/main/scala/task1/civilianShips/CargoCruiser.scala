@@ -2,7 +2,7 @@ package task1.civilianShips
 
 import task1.{CivilianShip, Spaceship}
 
-class CargoCruiser(name: String) extends Spaceship with CivilianShip {
+class CargoCruiser extends Spaceship with CivilianShip {
   override protected val numberOfCrew: Int = 5
   override protected val numberOfPassengers: Int = 2
   override protected val speed: Int = 24
