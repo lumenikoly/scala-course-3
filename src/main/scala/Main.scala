@@ -1,3 +1,4 @@
+import task1.warships.WarCruiser
 import task2.{Bolt, McQueen, Rocky, Runner, Tanos}
 import task3.Creature
 import task4.CargoCounter
@@ -8,24 +9,17 @@ object Main extends App {
   val distance: Int = 250
   val runners:List[Runner] = List(new Rocky, new Tanos, new Bolt, new McQueen)
 
-  def race(runners: List[Runner], distance: Int) = {
-    def getTime(speed: Int, distance: Int): Int = distance/speed
+  def race(runners: List[Runner], distance: Int): Map[String, Int] = {
     val runnersName: List[String] = runners.map(_.name)
     val runnersTime: List[Int] = runners.map(_.run)
     val results : Map[String, Int] = (runnersName zip runnersTime.map(distance/_)).toMap
     results
   }
+
   println(race(runners, distance).toSeq.sortBy(_._2))
 
 
   //3
-  val leon : Creature = Creature(230,2,21)
-  val blackMamba : Creature = Creature(2,2,0)
-  val elephant : Creature = Creature(5500, 6,7)
-  val nileCrocodile : Creature = Creature(230, 3,0)
-  val meerkat : Creature = Creature(1,0,3)
-  val cthulhu: Creature = Creature(666666,666666,66666)
-    //TODO: сделать из этого тесты
 
   def identifyAnimal(creature: Creature): String = {
     creature match {
@@ -63,16 +57,15 @@ object Main extends App {
     }
   }
 
-  println(identifyAnimal(leon))
-  println(identifyAnimal(blackMamba))
-  println(identifyAnimal(elephant))
-  println(identifyAnimal(nileCrocodile))
-  println(identifyAnimal(meerkat))
-  println(identifyAnimal(cthulhu))
-
   CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
   println(CargoCounter.ordinaryWeight)
   println(CargoCounter.valuableWeight)
+  println(CargoCounter.allWeight)
+
+
+  val war = new WarCruiser("Eee")
+  println(war.spaceJump(5))
+  println(war.spaceJump(50000))
 }
 
 
