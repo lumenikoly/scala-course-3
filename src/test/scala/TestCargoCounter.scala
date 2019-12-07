@@ -2,7 +2,7 @@ import org.scalatest.FunSuite
 import task4.CargoCounter
 
 class TestCargoCounter extends FunSuite {
-  CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
+
   test("CargoCounter.ordinaryWeight") {
     assert(CargoCounter.ordinaryWeight == 24.75)
   }

@@ -56,7 +56,6 @@ object Main extends App {
   }
 
   //4
-  CargoCounter.readFileToList(".\\src\\main\\resources\\cargo.txt")
   println(s"Обычный вес ${CargoCounter.ordinaryWeight}")
   println(s"Ценный груз ${CargoCounter.valuableWeight}")
   println(s"Весь груз ${CargoCounter.allWeight}")

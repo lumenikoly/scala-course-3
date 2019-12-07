@@ -13,7 +13,7 @@ object CargoCounter {
   def valuableWeight : Double = _valuableWeight
   def ordinaryWeight : Double = _ordinaryWeight
 
-  def readFileToList(path: String): List[String] = {
+  private def readFileToList(path: String): List[String] = {
     val file = Source.fromFile(path)
     val list : List[String] = file.getLines().toList
     file.close()
